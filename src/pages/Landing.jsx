@@ -41,11 +41,11 @@ const Landing = () => {
       <div onClick={toggleMusic} style={{ color: 'white', cursor: 'pointer' }}>
         {isPlaying ? (
           <p>
-            <img src={audioOnIcon} alt="audioOn" /> click here for music off
+            <img src={audioOnIcon} alt="audioOn" /> Click here to mute music
           </p>
         ) : (
           <p>
-            <img src={audioOffIcon} alt="audioOff" /> click here for music on
+            <img src={audioOffIcon} alt="audioOff" /> Click here to stage music
           </p>
         )}
       </div>
