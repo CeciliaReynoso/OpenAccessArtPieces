@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <div>
       <NavbarComponent /> 
-      <div className="container">
+      <div className="container" style={{paddingTop: '60px'}}>
         {/* <h1 style={{textAlign: 'center'}}>`Art Pieces about ${searchValue.toUpperCase()} at The MET`</h1> */}
         <div className="row">
           {artPieces.map(piece => (
@@ -29,7 +29,10 @@ const Home = () => {
                 <div className="card-body">
                   <h5 className="card-title">{piece.title}</h5>
                   <p className="card-text">Culture: {piece.culture}</p>
+                  <p className="card-text">Country: {piece.country}</p>
+                  <p className="card-text">Artist: {piece.artistDisplayName}</p>
                   <p className="card-text">Date: {piece.objectDate}</p>
+                  <p className="card-text">Medium: {piece.medium}</p>
                   <a href={piece.objectURL} className="btn btn-primary" target="_blank" rel="noopener noreferrer">View Details</a>
                 </div>
               </div>
