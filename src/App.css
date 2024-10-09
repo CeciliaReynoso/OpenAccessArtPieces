@@ -1,0 +1,134 @@
+/* App.css */
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  display: flex;
+  place-items: center; 
+  min-width: 1240px;
+  min-height: 100vh;
+}
+
+ul{
+  list-style: none;
+}
+h6{
+  padding: 0.5rem;
+}
+
+.navbar-fixed-top {
+  position: fixed; /* Asegura que el navbar esté fijo en la parte superior */
+  top: 0;
+  width: 100%;
+  padding: 0.5rem;
+  z-index: 1060; /* Asegura que el navbar esté por encima de otros elementos */
+  background-color: #343a40; /* Opcional: define el color de fondo del navbar */
+}
+
+.content {
+  padding-top: 55px; /* Ajusta este valor según la altura de tu Navbar */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */  
+}
+
+.row {
+  display: flex;
+  position: relative; /* Si no es necesario, evita usar position aquí */
+  z-index: 1; /* Asegura que esté por debajo del navbar */ 
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  margin: 0;
+  position: relative;
+}
+
+.login-container{
+  padding: 6rem;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem; /* Espacio entre los elementos */
+}
+
+.register-container {
+  padding: 6rem;
+  padding-top: calc(5rem - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 0.5rem; Espacio entre los elementos */
+}
+
+.form-group {
+  width: 40%;
+  min-width: 350px; /* Ajusta el ancho de los recuadros */
+  margin-bottom: 1rem; /* Separación entre los recuadros */
+  padding: auto;
+  }
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.btn-primary {
+  padding: 1.5rem 1.5rem;
+}
+
+.error-message {
+  color: red;
+}
+.success-message {
+  color: black;
+}
+
+.eCart{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center ;
+  max-width: '100%';
+  height: 'calc(100vh - 15%)';
+  margin-top: auto ;
+  margin-bottom: auto;
+  
+
+  
+}
+
+
+.eDesc{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+/*Margenes para componentes con pocos datos como pizza o login
+/* Márgenes para pantallas pequeñas y superiores */
+/* Márgenes para pantallas medianas y superiores */
+@media (min-width: 768px) {
+  
+
+ 
+}
+
+/* Márgenes para pantallas grandes y superiores */
+@media (min-width: 992px) {
+  
+}
+
+
