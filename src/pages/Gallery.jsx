@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { ApiContext } from '../context/ApiContext';
 import { SearchContext } from '../context/SearchContext';
 import NavbarComponent from '../components/Navbar';
+import FooterComponent from '../components/Footer';
 
 const Gallery = () => {
   const { artPieces, fetchArtPieces, loading, error } = useContext(ApiContext);
@@ -66,6 +67,7 @@ const Gallery = () => {
           ))}
         </div>
       </div>
+      <FooterComponent />
     </div>
   );
 };

@@ -64,6 +64,7 @@ const ArtTable = () => {
             ))}
           </tbody>
         </table>
+        <FooterComponent />
       </div>
     </>
   );

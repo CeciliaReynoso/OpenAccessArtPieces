@@ -11,6 +11,7 @@ import ArtCarousel3 from '../components/ArtCarousel3';
 import ArtCarousel4 from '../components/ArtCarousel4';
 import icons8_no_audio_26 from '../assets/icons8_no_audio_26.png';
 import icons8_audio_24 from '../assets/icons8_audio_24.png';
+import FooterComponent from '../components/Footer';
 
 // Iconos de audio
 const audioOnIcon = icons8_audio_24;
@@ -73,8 +74,9 @@ const Landing = () => {
         <div className="carousel-top-right"><ArtCarousel2 /></div>
         <div className="carousel-bottom-left"><ArtCarousel3 /></div>
         <div className="carousel-bottom-right"><ArtCarousel4 /></div>
-      </div>
+      </div> 
     </div>
+    
   );
 };
 

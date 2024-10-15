@@ -8,13 +8,12 @@ h6 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(100vh-20px);
+  height: calc(100vh- 20px);
   width: 100%;
   background-color: black;
   text-align: center;
   padding: 1rem;
   position: relative;
-  overflow-y: scroll;
 }
 
 .landing-logo {
@@ -108,6 +107,10 @@ h6 {
 }
 
 @media (max-width: 576px) {
+  .landing-container{
+    overflow-y: scroll;
+  }
+
   .landing-title {
     font-size: 2rem;
   }
@@ -115,6 +118,10 @@ h6 {
 }
 
 @media (max-width: 992px) {
+  .landing-container{
+    overflow-y: scroll;
+  }
+  
   .landing-title {
     font-size: 2rem;
   }
