@@ -37,7 +37,7 @@ const Landing = () => {
   };
 
   return (
-    <div className="landing-container">
+    <div role='banner' className="landing-container">
       <div onClick={toggleMusic} style={{ color: 'white', cursor: 'pointer', zIndex: '1030'}}>
         {isPlaying ? (
           <p>
