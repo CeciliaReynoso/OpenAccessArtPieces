@@ -5,7 +5,7 @@ import { createContext, useState, useEffect } from "react";
 export const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-  const [user, setUser] = useState({ username: "", password: "", token: false });
+  const [user, setUser] = useState({ username: "", password: "", token: true });
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');

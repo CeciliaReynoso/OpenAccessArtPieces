@@ -12,7 +12,7 @@ import ArtCarousel4 from '../components/ArtCarousel4';
 import icons8_no_audio_26 from '../assets/icons8_no_audio_26.png';
 import icons8_audio_24 from '../assets/icons8_audio_24.png';
 
-// Asegúrate de importar los íconos de audio
+// Iconos de audio
 const audioOnIcon = icons8_audio_24;
 const audioOffIcon = icons8_no_audio_26;
 
@@ -38,14 +38,14 @@ const Landing = () => {
 
   return (
     <div className="landing-container">
-      <div onClick={toggleMusic} style={{ color: 'white', cursor: 'pointer' }}>
+      <div onClick={toggleMusic} style={{ color: 'white', cursor: 'pointer', zIndex: '1030'}}>
         {isPlaying ? (
           <p>
-            <img src={audioOnIcon} alt="audioOn" /> Click here to mute music
+            <img src={audioOnIcon} alt="audioOn" style={{zIndex: '1030'}}/> Click here to mute music
           </p>
         ) : (
           <p>
-            <img src={audioOffIcon} alt="audioOff" /> Click here to stage music
+            <img src={audioOffIcon} alt="audioOff" style={{zIndex: '1030'}} /> Click here to stage music
           </p>
         )}
       </div>
