@@ -2,12 +2,15 @@ import { useEffect, useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext'; // Importa UserContext
 import { SearchContext } from '../context/SearchContext'; // Importa el contexto de búsqueda
+import icons8_eye from '../assets/icons8-millenium-eye-32.png';
+
 
 const NavbarComponent = () => {
   const { user } = useContext(UserContext); // Extrae user desde el contexto
   const { searchValue, updateSearchValue } = useContext(SearchContext); // Extrae searchValue y updateSearchValue del SearchContext
   const [inputValue, setInputValue] = useState(''); // Estado para el valor del input de búsqueda
   const navigate = useNavigate(); // Para navegar programáticamente
+  const icono = icons8_eye
 
   // Manejar el cambio en el input de búsqueda
   const handleInputChange = (e) => {
@@ -27,7 +30,7 @@ const NavbarComponent = () => {
   return (
     <nav role='navigation' style={{ position: 'fixed', top: '0', width: '100%', zIndex: 1030 }} className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <img style={{padding:'0.8rem'}} src="./public/icons8-millenium-eye-32.png" alt="icono" />
+        <img style={{padding:'0.8rem'}} src={icono} alt="icono" />
         <h3 className="navbar-brand text-danger">
           {searchValue.toUpperCase()} AT The MET
         </h3>
