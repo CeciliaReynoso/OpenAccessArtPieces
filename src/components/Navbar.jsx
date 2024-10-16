@@ -27,7 +27,7 @@ const NavbarComponent = () => {
   return (
     <nav role='navigation' style={{ position: 'fixed', top: '0', width: '100%', zIndex: 1030 }} className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <img style={{padding:'0.8rem'}} src="/public/icons8-millenium-eye-32.png" alt="icono" />
+        <img style={{padding:'0.8rem'}} src="./public/icons8-millenium-eye-32.png" alt="icono" />
         <h3 className="navbar-brand text-danger">
           {searchValue.toUpperCase()} AT The MET
         </h3>
