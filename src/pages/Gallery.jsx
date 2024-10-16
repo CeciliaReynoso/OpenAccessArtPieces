@@ -35,7 +35,7 @@ const Gallery = () => {
   return (
     <div>
       <NavbarComponent />
-      <div role='main' className="container" style={{paddingTop: '60px'}}>
+      <div role='main' className="container" style={{paddingTop: '70px'}}>
         <h1 style={{ textAlign: 'center' }}>
           Art Pieces about {searchValue.toUpperCase()} at The MET
         </h1>

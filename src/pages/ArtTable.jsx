@@ -3,6 +3,7 @@ import { ApiContext } from '../context/ApiContext';
 import { SearchContext } from '../context/SearchContext'; // Importa el contexto de búsqueda
 import NavbarComponent from '../components/Navbar'; 
 import { Link } from 'react-router-dom';
+import FooterComponent from '../components/Footer';
 
 const ArtTable = () => {
   const { artPieces, fetchArtPieces, loading, error } = useContext(ApiContext);
@@ -35,7 +36,7 @@ const ArtTable = () => {
   return (
     <>
       <NavbarComponent />
-      <div className="container" style={{paddingTop: '60px'}}>
+      <div className="container" style={{paddingTop: '70px'}}>
         <h1>Art Pieces from {searchValue.toUpperCase()}</h1> 
         <p>To see it in images go to <Link to='/gallery'>Gallery</Link></p>
         <table className="table table-striped">
@@ -64,8 +65,8 @@ const ArtTable = () => {
             ))}
           </tbody>
         </table>
-        <FooterComponent />
       </div>
+      <FooterComponent />
     </>
   );
 };

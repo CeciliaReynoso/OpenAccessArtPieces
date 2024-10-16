@@ -4,6 +4,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Centra las cards horizontalmente */
+    place-items: center;
     gap: 20px; /* Espacio entre las cards */
     padding: 20px; /* Añade algo de espacio alrededor del contenedor */
     flex: 1 1 calc(33.333% - 20px);
