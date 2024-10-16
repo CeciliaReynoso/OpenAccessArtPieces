@@ -30,10 +30,10 @@ const NavbarComponent = () => {
   return (
     <nav role='navigation' style={{ position: 'fixed', top: '0', width: '100%', zIndex: 1030 }} className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <img style={{padding:'0.8rem'}} src={icono} alt="icono" />
-        <h3 className="navbar-brand text-danger">
+        <img style={{padding:'0.2rem', width:'32px', height:'32px'}} src={icono} alt="icono" />
+        <h5 className="navbar-brand text-danger">
           {searchValue.toUpperCase()} AT The MET
-        </h3>
+        </h5>
         <button
           className="navbar-toggler"
           type="button"
