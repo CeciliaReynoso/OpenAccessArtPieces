@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { ApiContext } from '../context/ApiContext';
 import { SearchContext } from '../context/SearchContext';
 import NavbarComponent from '../components/Navbar';
@@ -9,7 +9,7 @@ const Gallery = () => {
   const { searchValue } = useContext(SearchContext);
 
   useEffect(() => {
-    fetchArtPieces(searchValue);
+    fetchArtPieces(); // Llamada para obtener las piezas
   }, [fetchArtPieces, searchValue]);
 
   if (loading) return <div>Loading...</div>;
@@ -39,9 +39,6 @@ const Gallery = () => {
         <h1 style={{ textAlign: 'center' }}>
           Art Pieces about {searchValue.toUpperCase()} at The MET
         </h1>
-        {sortedArtPieces.length === 0 && !loading && (
-          <p style={{ textAlign: 'center' }}>No art pieces found for {searchValue.toUpperCase()}.</p>
-        )}
         <div className="row">
           {sortedArtPieces.map((piece) => (
             <div key={piece.objectID} className="col-md-4 mb-4">

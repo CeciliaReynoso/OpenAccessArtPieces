@@ -26,7 +26,7 @@ h6{
   width: 100%;
   padding: 0.5rem;
   z-index: 1060; /* Asegura que el navbar esté por encima de otros elementos */
-  background-color: #343a40; /* Opcional: define el color de fondo del navbar */
+  background-color: #f48b48; /* Opcional: define el color de fondo del navbar */
 }
 
 .content {

@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { ApiContext } from '../context/ApiContext';
 import { SearchContext } from '../context/SearchContext'; // Importa el contexto de búsqueda
 import NavbarComponent from '../components/Navbar'; 
@@ -11,7 +11,7 @@ const ArtTable = () => {
 
   // Llama a fetchArtPieces cuando se monta el componente y cuando searchValue cambia
   useEffect(() => {
-    fetchArtPieces(searchValue);
+    fetchArtPieces();
   }, [fetchArtPieces, searchValue]); // Agrega searchValue como dependencia para actualizar las piezas de arte
 
   if (loading) return <div>Loading...</div>;
@@ -39,7 +39,6 @@ const ArtTable = () => {
       <div className="container" style={{paddingTop: '70px'}}>
         <h1>Art Pieces from {searchValue.toUpperCase()}</h1> 
         <p>To see it in images go to <Link to='/gallery'>Gallery</Link></p>
-        {sortedArtPieces.length === 0 && !loading && <p>No art pieces found for {searchValue.toUpperCase()}.</p>}
         <table className="table table-striped">
           <thead>
             <tr>

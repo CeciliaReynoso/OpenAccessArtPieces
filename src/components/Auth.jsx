@@ -1,7 +1,7 @@
 import NavigationBar from "../components/NavigationBar";
 import { Container } from "react-bootstrap";
 import Footer from "../components/Footer";
-import LoginForm from "../components/LoginForm";
+import LoginForm from "../components/";
 
 export default function Auth() {
   return (
