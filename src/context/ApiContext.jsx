@@ -11,11 +11,11 @@ export const ApiProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   // Función general para obtener piezas de arte
-  const fetchArtPieces = useCallback(async (searchTerm = 'flowers') => {
+  const fetchArtPieces = useCallback(async (searchTerm = 'flower') => {
     setLoading(true);
     setError(null);
     try {
-      const normalizedSearchTerm = searchTerm.trim() || 'flowers';
+      const normalizedSearchTerm = searchTerm.trim() || 'flower';
 
       // Paso 1: Obtener los IDs de las piezas que cumplen con la búsqueda
       const response = await fetch(`/api/met/search?hasImages=true&ispublicdomain=true&q=${encodeURIComponent(normalizedSearchTerm)}`);

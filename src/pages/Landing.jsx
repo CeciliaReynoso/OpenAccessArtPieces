@@ -56,7 +56,7 @@ const Landing = () => {
           <p style={{ color: 'white' }}>Or</p>
           <input
             type="text"
-            placeholder="Enter a keyword e.g. flowers, kung , manet, paracas"
+            placeholder="Enter a keyword e.g. flower, kung , manet, paracas"
             className="landing-button"
             onChange={(e) => setInputValue(e.target.value)}
           />
