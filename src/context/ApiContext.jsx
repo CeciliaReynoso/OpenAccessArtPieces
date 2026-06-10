@@ -18,7 +18,7 @@ export const ApiProvider = ({ children }) => {
       const normalizedSearchTerm = searchTerm.trim() || 'flowers';
 
       // Paso 1: Obtener los IDs de las piezas que cumplen con la búsqueda
-      const response = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&ispublicdomain=true&q=${encodeURIComponent(normalizedSearchTerm)}`);
+      const response = await fetch(`/api/met/search?hasImages=true&ispublicdomain=true&q=${encodeURIComponent(normalizedSearchTerm)}`);
       if (!response.ok) {
         throw new Error('Error al obtener los datos de búsqueda');
       }
@@ -32,7 +32,7 @@ export const ApiProvider = ({ children }) => {
 
       // Paso 2: Obtener detalles de cada objeto por su ID y filtrar por los que tienen imagen
       const objectDetailsPromises = objectIds.map(async (id) => {
-        const objResponse = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`);
+        const objResponse = await fetch(`/api/met/objects/${id}`);
         if (!objResponse.ok) {
           throw new Error(`Error al obtener el objeto ${id}`);
         }
