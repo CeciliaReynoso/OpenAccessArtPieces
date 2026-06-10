@@ -23,7 +23,7 @@ export const ApiProvider = ({ children }) => {
         throw new Error('Error al obtener los datos de búsqueda');
       }
       const result = await response.json();
-      const objectIds = result.objectIDs?.slice(0, 100) ?? [];
+      const objectIds = result.objectIDs?.slice(0, 30) ?? [];
 
       if (objectIds.length === 0) {
         setArtPieces([]);
