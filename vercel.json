@@ -3,6 +3,10 @@
     {
       "source": "/api/met/:path*",
       "destination": "https://collectionapi.metmuseum.org/public/collection/:path*"
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
     }
   ]
 }

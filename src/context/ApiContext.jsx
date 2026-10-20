@@ -1,5 +1,5 @@
 // src/context/ApiContext.jsx
-import { createContext, useState, useCallback } from 'react';
+import { createContext, useState, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 const MAX_PIECES = 20;
@@ -14,7 +14,12 @@ export const ApiProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   // Función general para obtener piezas de arte
+  const requestId = useRef(0);
+
   const fetchArtPieces = useCallback(async (searchTerm = 'flower') => {
+    // Ignora respuestas de búsquedas anteriores si ya se lanzó otra más reciente
+    const currentId = ++requestId.current;
+    const isStale = () => currentId !== requestId.current;
     setLoading(true);
     setError(null);
     try {
@@ -26,6 +31,7 @@ export const ApiProvider = ({ children }) => {
         throw new Error('Error al obtener los datos de búsqueda');
       }
       const result = await response.json();
+      if (isStale()) return;
       const objectIds = result.objectIDs?.slice(0, MAX_PIECES) ?? [];
 
       if (objectIds.length === 0) {
@@ -38,6 +44,7 @@ export const ApiProvider = ({ children }) => {
       const objects = [];
 
       for (let i = 0; i < objectIds.length; i += BATCH_SIZE) {
+        if (isStale()) return;
         const batch = objectIds.slice(i, i + BATCH_SIZE);
 
         const results = await Promise.allSettled(
@@ -58,11 +65,12 @@ export const ApiProvider = ({ children }) => {
       // Filtrar las piezas que tienen una imagen
       const filteredObjects = objects.filter(piece => piece.primaryImageSmall);
 
+      if (isStale()) return;
       setArtPieces(filteredObjects);
     } catch (error) {
-      setError(error.message || error);
+      if (!isStale()) setError(error.message || error);
     } finally {
-      setLoading(false);
+      if (!isStale()) setLoading(false);
     }
   }, []);
 
