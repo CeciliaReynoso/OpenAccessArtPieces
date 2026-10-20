@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api/met': {
-        target: 'https://collectionapi.metmuseum.org/public/collection/v1',
+        target: 'https://collectionapi.metmuseum.org/public/collection',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api\/met/, '')
       }

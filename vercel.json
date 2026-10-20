@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/met/:path*",
-      "destination": "https://collectionapi.metmuseum.org/public/collection/v1/:path*"
+      "destination": "https://collectionapi.metmuseum.org/public/collection/:path*"
     }
   ]
 }

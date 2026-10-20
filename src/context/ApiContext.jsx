@@ -1,5 +1,8 @@
 // src/context/ApiContext.jsx
 import { createContext, useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
+
+const MAX_PIECES = 20;
 
 // Crear el contexto
 export const ApiContext = createContext();
@@ -18,29 +21,39 @@ export const ApiProvider = ({ children }) => {
       const normalizedSearchTerm = searchTerm.trim() || 'flower';
 
       // Paso 1: Obtener los IDs de las piezas que cumplen con la búsqueda
-      const response = await fetch(`/api/met/search?hasImages=true&ispublicdomain=true&q=${encodeURIComponent(normalizedSearchTerm)}`);
+      const response = await fetch(`/api/met/v1.1/search?hasImages=true&ispublicdomain=true&q=${encodeURIComponent(normalizedSearchTerm)}&limit=${MAX_PIECES}&offset=0`);
       if (!response.ok) {
         throw new Error('Error al obtener los datos de búsqueda');
       }
       const result = await response.json();
-      const objectIds = result.objectIDs?.slice(0, 30) ?? [];
+      const objectIds = result.objectIDs?.slice(0, MAX_PIECES) ?? [];
 
       if (objectIds.length === 0) {
         setArtPieces([]);
         return;
       }
 
-      // Paso 2: Obtener detalles de cada objeto por su ID y filtrar por los que tienen imagen
-      const objectDetailsPromises = objectIds.map(async (id) => {
-        const objResponse = await fetch(`/api/met/objects/${id}`);
-        if (!objResponse.ok) {
-          throw new Error(`Error al obtener el objeto ${id}`);
-        }
-        const data = await objResponse.json();
-        return data;
-      });
+      // Paso 2: pedir los detalles en lotes de 5 para no saturar la API
+      const BATCH_SIZE = 5;
+      const objects = [];
 
-      const objects = await Promise.all(objectDetailsPromises);
+      for (let i = 0; i < objectIds.length; i += BATCH_SIZE) {
+        const batch = objectIds.slice(i, i + BATCH_SIZE);
+
+        const results = await Promise.allSettled(
+          batch.map(async (id) => {
+            const objResponse = await fetch(`/api/met/v1/objects/${id}`);
+            if (!objResponse.ok) {
+              throw new Error(`Error al obtener el objeto ${id}`);
+            }
+            return objResponse.json();
+          })
+        );
+
+        results.forEach((r) => {
+          if (r.status === 'fulfilled') objects.push(r.value);
+        });
+      }
 
       // Filtrar las piezas que tienen una imagen
       const filteredObjects = objects.filter(piece => piece.primaryImageSmall);
@@ -58,4 +71,8 @@ export const ApiProvider = ({ children }) => {
       {children}
     </ApiContext.Provider>
   );
+};
+
+ApiProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
