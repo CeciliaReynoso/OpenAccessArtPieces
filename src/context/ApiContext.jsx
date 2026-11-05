@@ -2,7 +2,7 @@
 import { createContext, useState, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-const MAX_PIECES = 20;
+const MAX_PIECES = 30;
 
 // Traduce el código HTTP a un mensaje comprensible, conservando el código para diagnosticar
 const describeHttpError = (status) => {
